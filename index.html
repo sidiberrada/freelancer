@@ -373,8 +373,9 @@
     .lede{font-size:1rem;line-height:1.58}
     h2{font-size:clamp(1.35rem,5.6vw,1.7rem)}
     .hero-inner{padding-block:30px 36px;gap:26px}
-    /* a 4/5 portrait at 300px is 375px tall — it pushed the headline off-screen */
-    .portrait-col{max-width:212px}
+    /* 4/5 means height = width x 1.25, and the photo sits above the headline —
+       cap it in vw too so it does not take over the smallest screens */
+    .portrait-col{max-width:min(264px,72vw)}
     .trust-item{padding:15px 0}
     .trust-item b{font-size:1.5rem}
     .step{padding:16px 0}
