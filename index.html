@@ -137,7 +137,9 @@
     .hero-inner{grid-template-columns:1fr;gap:36px;padding-block:52px 48px}
     .hero h1{text-wrap:balance}
     .hero h1 .hb{display:none}
-    .portrait-col{order:-1;max-width:300px}
+    /* max-width caps the grid item but leaves it at the start of the track —
+       margin-inline:auto is what actually centres it once stacked */
+    .portrait-col{order:-1;max-width:300px;margin-inline:auto}
   }
 
   /* ---- Portrait ---- */
