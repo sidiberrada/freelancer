@@ -1,4 +1,13 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#EFEDE6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131614" media="(prefers-color-scheme: dark)">
 <title>Mohamed Berrada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
   /* ============ TOKENS (light = complete set) ============ */
@@ -117,7 +126,7 @@
     gap:56px;align-items:center;padding-block:76px 64px;
   }
   /* line breaks are hand-set; below 860px they are removed and balance takes over */
-  .hero h1{margin:.9rem 0 1.1rem;text-wrap:normal}
+  .hero h1{margin:.9rem 0 1.1rem;text-wrap:normal;text-align:center}
   .hero h1 em{font-style:normal;color:var(--accent)}
   .hero-ctas{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.9rem}
   .hero-note{
@@ -339,7 +348,58 @@
   .foot{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;
     font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
   .foot a{color:var(--accent);text-decoration:none}
+
+  /* ============ MOBILE REFINEMENTS ============ */
+  /* long emails / URLs must never push the layout wider than the screen */
+  body{overflow-wrap:break-word}
+  /* iOS Safari zooms the whole page when a focused field is under 16px */
+  @media (max-width:860px){
+    .field input,.field select,.field textarea{font-size:16px}
+  }
+  /* the price table keeps its own horizontal scroll — give it momentum on iOS
+     and buy back some width so there is less of it to scroll */
+  @media (max-width:600px){
+    .tablewrap{-webkit-overflow-scrolling:touch}
+    table.price{min-width:540px;font-size:.88rem}
+    table.price th,table.price td{padding:11px 12px}
+    .nav .btn{min-height:40px}
+  }
+  /* ---- Density: the desktop spacing scale reads as bulky at phone width ---- */
+  @media (max-width:700px){
+    section{padding:42px 0}
+    .sec-head{margin-bottom:26px}
+    .lede{font-size:1rem;line-height:1.58}
+    h2{font-size:clamp(1.35rem,5.6vw,1.7rem)}
+    .hero-inner{padding-block:30px 36px;gap:26px}
+    /* a 4/5 portrait at 300px is 375px tall — it pushed the headline off-screen */
+    .portrait-col{max-width:212px}
+    .trust-item{padding:15px 0}
+    .trust-item b{font-size:1.5rem}
+    .step{padding:16px 0}
+    .spec li{padding:10px 14px}
+    .spec-head{padding:11px 14px}
+    .chan{gap:1rem;margin-top:1.15rem}
+    .guarantee{padding:18px;margin-top:28px}
+    .quote{padding:18px 16px;gap:.75rem}
+    .faq summary{padding:15px 2.2rem 15px 0;font-size:.96rem}
+    .faq details p{padding-bottom:16px}
+    .form-card{padding:18px 16px}
+  }
+  @media (max-width:560px){
+    /* 4.4vw bottoms out well under the 2.25rem floor on a phone, so the floor
+       is what actually renders — set one sized for the narrowest screens */
+    h1{font-size:clamp(1.55rem,7.4vw,2.2rem)}
+    .hero h1{margin:.7rem 0 .85rem}
+    /* CTAs stay inline and wrap: full-width stacked bars dominate a small screen */
+    .btn--lg{padding:.8rem 1.15rem;font-size:.9rem}
+    .hero-ctas{gap:.5rem;margin-top:1.4rem}
+    .hero-note{margin-top:.9rem}
+    .spec-head,.portrait-cap,.foot{flex-wrap:wrap}
+    .spec-head{gap:.4rem}
+  }
 </style>
+</head>
+<body>
 
 <header>
   <nav class="nav">
@@ -793,3 +853,6 @@
     link.remove();
   });
 </script>
+
+</body>
+</html>
