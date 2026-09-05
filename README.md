@@ -10,7 +10,7 @@ stylesheet.
 | File | Purpose |
 | --- | --- |
 | `index.html` | The complete page — markup, CSS tokens, and behaviour |
-| `images.jfif` | Original source photo, kept for future edits (the page uses the inlined copy) |
+| `berrada.png` | Source portrait, kept for future edits (the page uses the inlined JPEG copy) |
 
 ## Running it locally
 
